@@ -1,3 +1,4 @@
-FROM ubuntu
-RUN apt-get update
-RUN apt-get install figlet
+FROM scratch
+EXPOSE 80
+COPY http-server /
+CMD ["/http-server"]
