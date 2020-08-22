@@ -1,9 +1,9 @@
 pipeline {
     agent {
-    docker{
-    image 'mysql'
-    }
-    }
+        docker node{
+          image 'mysql'
+          }
+      }
 
     stages {
         stage('Hello') {
