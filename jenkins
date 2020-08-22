@@ -1,5 +1,5 @@
 pipeline {
-    agent {
+    agent node {
        node{
         docker{
           image 'mysql'
