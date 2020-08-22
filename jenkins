@@ -1,8 +1,10 @@
 pipeline {
     agent {
-        docker node{
+       node{
+        docker{
           image 'mysql'
           }
+        }
       }
 
     stages {
