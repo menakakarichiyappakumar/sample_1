@@ -1,8 +1,14 @@
 pipeline {
-    agent {
+   
+    
+    stages {
+      stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
+     agent {
         docker { image 'node:mysql' }
     }
-    stages {
         stage('Test') {
             steps {
                 sh 'node --version'
