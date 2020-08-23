@@ -1,15 +1,9 @@
-pipeline {
-    agent { 
-    label 'docker' 
-  }
-    stages {
-        stage('build') {
-        agent {
-        docker { image 'python:3.5.1'}
-        }
-            steps {
-                sh 'python --version'
-            }
-        }
+node {
+    checkout scm
+
+    def customImage = docker.build("my-image:${env.BUILD_ID}")
+
+    customImage.inside {
+        sh 'make test'
     }
 }
