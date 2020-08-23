@@ -1,17 +1,9 @@
 pipeline {
-   
-    
+    agent { docker { image 'python:3.5.1' } }
     stages {
-      stage('Initialize'){
-        def dockerHome = tool 'myDocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
-     agent {
-        docker { image 'node:mysql' }
-    }
-        stage('Test') {
+        stage('build') {
             steps {
-                sh 'node --version'
+                sh 'python --version'
             }
         }
     }
